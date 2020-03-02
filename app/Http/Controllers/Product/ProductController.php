@@ -3,16 +3,17 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
+use App\Product;
+use App\Order;
 
 class ProductController extends Controller
 {
 
-    public function __construct()
-    {
-
-    }
-
     public function index() {
-        dd('Product');
+//        $product = Product::all();
+        $order = Order::with('products', 'user')->get();
+        $product = Product::with('orders')->get();
+//        dd($product);
+        dd($order);
     }
 }
