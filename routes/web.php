@@ -20,10 +20,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['namespace' => 'Product'], function () {
-    Route::get('/product', 'ProductController@index')->name('product');
+//    Route::get('/product', 'ProductController@index')->name('product');
+    Route::resource('product', 'ProductController');
 });
 
 Route::group(['namespace' => 'Order'], function () {
-    Route::get('/order', 'OrderController@index')->name('product');
+//    Route::get('/order', 'OrderController@index')->name('product');
+    Route::resource('order', 'OrderController');
+
 });
 
